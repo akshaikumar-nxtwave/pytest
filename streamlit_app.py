@@ -1,25 +1,21 @@
-# streamlit_app.py
+# app.py
 import streamlit as st
-# Import the core logic (e.g., run_process) from your original script
-from script import run_process
 
-st.title("My CLI Code as a Web App")
+# Set the title of the web page
+st.title("CLI to Streamlit Host Example")
 
-# Replaces the command line argument "input_path"
-input_file = st.file_uploader("Upload Input File")
+# --- REPLACING input("Enter your name") ---
+# Use st.text_input for user input.
+# The user's input is stored in the 'name' variable in real-time.
+name = st.text_input("Enter your name")
 
-# Replaces the optional argument "--param"
-parameter_value = st.slider("Select Parameter", 0, 10, 5)
+# --- REPLACING print(f"Hello!, {name}") ---
 
-if st.button("Run Process") and input_file:
-    # 1. Process the input_file (e.g., save it, get the path)
-    # ...
-
-    # 2. Call the original logic function
-    with st.spinner('Running the backend process...'):
-        result = run_process(input_path, parameter_value)
-
-    # 3. Display the output instead of printing
-    st.success("Process Complete!")
-    st.write("Results:")
-    st.dataframe(result) # Or st.write(result)
+# We only want to display the greeting if the user has actually entered something.
+if name:
+    # Use st.write, st.header, or st.success to display the output.
+    # We use an f-string, just like your original code, to format the output.
+    st.header(f"Hello!, {name}") 
+else:
+    # A friendly prompt when the input field is empty
+    st.info("Please enter your name above to see the greeting.")
