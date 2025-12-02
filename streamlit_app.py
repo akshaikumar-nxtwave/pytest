@@ -15,7 +15,7 @@ name = st.text_input("Enter your name")
 if name:
     # Use st.write, st.header, or st.success to display the output.
     # We use an f-string, just like your original code, to format the output.
-    st.header(f"Hello!, {name}") 
+    st.header(f"Hello! {name}") 
 else:
     # A friendly prompt when the input field is empty
     st.info("Please enter your name above to see the greeting.")
